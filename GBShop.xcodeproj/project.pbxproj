@@ -21,6 +21,9 @@
 		B518C37725DD7C2200433FA6 /* SignUpResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B518C37625DD7C2200433FA6 /* SignUpResult.swift */; };
 		B518C37C25DD7C9400433FA6 /* SignUpRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B518C37B25DD7C9400433FA6 /* SignUpRequestFactory.swift */; };
 		B518C38125DD7DAB00433FA6 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B518C38025DD7DAB00433FA6 /* SignUp.swift */; };
+		B518C38725DD88DF00433FA6 /* LogoutRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B518C38625DD88DF00433FA6 /* LogoutRequestFactory.swift */; };
+		B518C38F25DD88F800433FA6 /* Logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B518C38E25DD88F800433FA6 /* Logout.swift */; };
+		B518C39425DD895900433FA6 /* LogoutResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B518C39325DD895900433FA6 /* LogoutResult.swift */; };
 		B5EEDD7525D83F2400364C1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EEDD7425D83F2400364C1A /* AppDelegate.swift */; };
 		B5EEDD7725D83F2400364C1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EEDD7625D83F2400364C1A /* SceneDelegate.swift */; };
 		B5EEDD7E25D83F2500364C1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5EEDD7D25D83F2500364C1A /* Assets.xcassets */; };
@@ -60,6 +63,9 @@
 		B518C37625DD7C2200433FA6 /* SignUpResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResult.swift; sourceTree = "<group>"; };
 		B518C37B25DD7C9400433FA6 /* SignUpRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequestFactory.swift; sourceTree = "<group>"; };
 		B518C38025DD7DAB00433FA6 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		B518C38625DD88DF00433FA6 /* LogoutRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRequestFactory.swift; sourceTree = "<group>"; };
+		B518C38E25DD88F800433FA6 /* Logout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logout.swift; sourceTree = "<group>"; };
+		B518C39325DD895900433FA6 /* LogoutResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResult.swift; sourceTree = "<group>"; };
 		B5EEDD7125D83F2400364C1A /* GBShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5EEDD7425D83F2400364C1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5EEDD7625D83F2400364C1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,8 +110,9 @@
 			isa = PBXGroup;
 			children = (
 				B518C36925DD6E8700433FA6 /* RequestFactory.swift */,
-				B518C37525DD7BA000433FA6 /* SignUp */,
 				B518C37125DD6FF100433FA6 /* Auth */,
+				B518C38525DD88AA00433FA6 /* Logout */,
+				B518C37525DD7BA000433FA6 /* SignUp */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -140,6 +147,15 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		B518C38525DD88AA00433FA6 /* Logout */ = {
+			isa = PBXGroup;
+			children = (
+				B518C38625DD88DF00433FA6 /* LogoutRequestFactory.swift */,
+				B518C38E25DD88F800433FA6 /* Logout.swift */,
+			);
+			path = Logout;
+			sourceTree = "<group>";
+		};
 		B564AFD025D8431400114E37 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				B518C37625DD7C2200433FA6 /* SignUpResult.swift */,
+				B518C39325DD895900433FA6 /* LogoutResult.swift */,
 				B518C35525DD6D8B00433FA6 /* LoginResult.swift */,
 				B518C35A25DD6DAC00433FA6 /* User.swift */,
 			);
@@ -394,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B518C38725DD88DF00433FA6 /* LogoutRequestFactory.swift in Sources */,
 				B518C36A25DD6E8700433FA6 /* RequestFactory.swift in Sources */,
 				B518C33725DC327200433FA6 /* AbstractErrorParser.swift in Sources */,
 				B518C34725DD6BE400433FA6 /* ResponseCodable.swift in Sources */,
@@ -404,10 +422,12 @@
 				B518C37C25DD7C9400433FA6 /* SignUpRequestFactory.swift in Sources */,
 				B5EEDD7525D83F2400364C1A /* AppDelegate.swift in Sources */,
 				B518C35625DD6D8B00433FA6 /* LoginResult.swift in Sources */,
+				B518C38F25DD88F800433FA6 /* Logout.swift in Sources */,
 				B518C36525DD6E4D00433FA6 /* Auth.swift in Sources */,
 				B518C35B25DD6DAC00433FA6 /* User.swift in Sources */,
 				B5EEDD7725D83F2400364C1A /* SceneDelegate.swift in Sources */,
 				B518C34C25DD6C9800433FA6 /* AbstractRequestFactory.swift in Sources */,
+				B518C39425DD895900433FA6 /* LogoutResult.swift in Sources */,
 				B518C33C25DC3A4C00433FA6 /* ErrorParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
