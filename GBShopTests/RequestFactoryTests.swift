@@ -90,5 +90,48 @@ class RequestFactoryTests: XCTestCase {
         
         waitForExpectations(timeout: 10)
     }
+    
+    func testRequestFactoryGetProductsCatalog() throws {
+
+        let getProductsCatalog = requestFactory.makeGetProductsCatalogRequestFactory()
+        let gotProductsCatalog = expectation(description: "Got products catalog")
+        getProductsCatalog.getProductsCatalog(pageNumber: 1, categoryId: 1) { response in
+            switch response.result {
+            case .success(let productsCatalog):
+                XCTAssertEqual(productsCatalog.count, 2)
+                XCTAssertEqual(productsCatalog[0].id, 123)
+                XCTAssertEqual(productsCatalog[0].productName, "Ноутбук")
+                XCTAssertEqual(productsCatalog[0].price, 45600)
+                XCTAssertEqual(productsCatalog[1].id, 456)
+                XCTAssertEqual(productsCatalog[1].productName, "Мышка")
+                XCTAssertEqual(productsCatalog[1].price, 1000)
+                gotProductsCatalog.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+        
+        waitForExpectations(timeout: 10)
+    }
+    
+    func testRequestFactoryGetProductById() throws {
+
+        let getProductById = requestFactory.makeGetProductByIdRequestFactory()
+        let gotProductById = expectation(description: "Got product by id")
+        getProductById.getProductById(id: 123) { response in
+            switch response.result {
+            case .success(let product):
+                XCTAssertEqual(product.result, 1)
+                XCTAssertEqual(product.productName, "Ноутбук")
+                XCTAssertEqual(product.productPrice, 45600)
+                XCTAssertEqual(product.productDescription, "Мощный игровой ноутбук")
+                gotProductById.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+        
+        waitForExpectations(timeout: 10)
+    }
 
 }
