@@ -1,14 +1,14 @@
 //
-//  LogOut.swift
+//  AddReview.swift
 //  GBShop
 //
-//  Created by Зинде Иван on 2/17/21.
+//  Created by Зинде Иван on 3/4/21.
 //
 
 import Foundation
 import Alamofire
 
-class Logout: AbstractRequestFactory {
+class AddReview: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
@@ -25,23 +25,25 @@ class Logout: AbstractRequestFactory {
     }
 }
 
-extension Logout: LogoutRequestFactory {
-    func logout(id: Int, completionHandler: @escaping (AFDataResponse<LogoutResult>) -> Void) {
-        let requestModel = Logout(baseUrl: baseUrl, id: id)
+extension AddReview: AddReviewRequestFactory {
+    func addReview(id: Int, text: String, completionHandler: @escaping (AFDataResponse<AddReviewResult>) -> Void) {
+        let requestModel = AddReview(baseUrl: baseUrl, id: id, text: text)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension Logout {
-    struct Logout: RequestRouter {
+extension AddReview {
+    struct AddReview: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
-        let path: String = "logout.json"
+        let path: String = "addReview.json"
 
         let id: Int
+        let text: String
         var parameters: Parameters? {
             return [
-                "id_user": id
+                "id_user": id,
+                "text": text
             ]
         }
     }
