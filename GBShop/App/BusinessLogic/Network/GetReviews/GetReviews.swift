@@ -1,18 +1,18 @@
 //
-//  Auth.swift
+//  GetReviews.swift
 //  GBShop
 //
-//  Created by Зинде Иван on 2/17/21.
+//  Created by Зинде Иван on 3/8/21.
 //
 
 import Foundation
 import Alamofire
 
-class Auth: AbstractRequestFactory {
+class GetReviews: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    let baseUrl: URL
+    let baseUrl : URL
 
     init(
         baseURL: String,
@@ -26,25 +26,27 @@ class Auth: AbstractRequestFactory {
     }
 }
 
-extension Auth: AuthRequestFactory {
-    func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void) {
-        let requestModel = Login(baseUrl: baseUrl, login: userName, password: password)
+extension GetReviews: GetReviewsRequestFactory {
+    func getReviews(pageNumber: Int,
+                    productId: Int,
+                    completionHandler: @escaping (AFDataResponse<[GetReviewsResult]>) -> Void) {
+        let requestModel = GetReviews(baseUrl: baseUrl, pageNumber: pageNumber, productId: productId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension Auth {
-    struct Login: RequestRouter {
+extension GetReviews {
+    struct GetReviews: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .get
-        let path: String = "login.json"
+        let path: String = "getProducts.json"
 
-        let login: String
-        let password: String
+        let pageNumber: Int
+        let productId: Int
         var parameters: Parameters? {
             return [
-                "username": login,
-                "password": password
+                "page_number": pageNumber,
+                "id_product": productId
             ]
         }
     }
