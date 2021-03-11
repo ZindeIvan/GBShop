@@ -50,8 +50,8 @@ extension SignUp: SignUpRequestFactory {
 extension SignUp {
     struct SignUp: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "registerUser.json"
+        let method: HTTPMethod = .post
+        let path: String = "register"
 
         let id: Int
         let login: String

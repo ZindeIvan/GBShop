@@ -38,8 +38,8 @@ extension GetReviews: GetReviewsRequestFactory {
 extension GetReviews {
     struct GetReviews: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "getProducts.json"
+        let method: HTTPMethod = .post
+        let path: String = "getReviews"
 
         let pageNumber: Int
         let productId: Int

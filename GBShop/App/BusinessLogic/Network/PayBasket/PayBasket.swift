@@ -36,8 +36,8 @@ extension PayBasket: PayBasketRequestFactory {
 extension PayBasket {
     struct PayBasket: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "payBasket.json"
+        let method: HTTPMethod = .post
+        let path: String = "payBasket"
 
         let id: Int
         var parameters: Parameters? {

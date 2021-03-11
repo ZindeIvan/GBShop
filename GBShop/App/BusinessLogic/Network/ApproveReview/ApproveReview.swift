@@ -36,8 +36,8 @@ extension ApproveReview: ApproveReviewRequestFactory {
 extension ApproveReview {
     struct ApproveReview: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "approveReview.json"
+        let method: HTTPMethod = .post
+        let path: String = "approveReview"
 
         let id: Int
         var parameters: Parameters? {

@@ -36,8 +36,8 @@ extension RemoveReview: RemoveReviewRequestFactory {
 extension RemoveReview {
     struct RemoveReview: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "removeReview.json"
+        let method: HTTPMethod = .post
+        let path: String = "removeReview"
 
         let id: Int
         var parameters: Parameters? {

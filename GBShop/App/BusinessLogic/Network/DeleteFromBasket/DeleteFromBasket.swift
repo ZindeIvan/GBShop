@@ -36,8 +36,8 @@ extension DeleteFromBasket: DeleteFromBasketRequestFactory {
 extension DeleteFromBasket {
     struct DeleteFromBasket: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "deleteFromBasket.json"
+        let method: HTTPMethod = .post
+        let path: String = "deleteFromBasket"
 
         let id: Int
         var parameters: Parameters? {

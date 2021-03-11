@@ -36,8 +36,8 @@ extension AddToBasket: AddToBasketRequestFactory {
 extension AddToBasket {
     struct AddToBasket: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "addToBasket.json"
+        let method: HTTPMethod = .post
+        let path: String = "addToBasket"
 
         let id: Int
         let quantity: Int

@@ -36,8 +36,8 @@ extension AddReview: AddReviewRequestFactory {
 extension AddReview {
     struct AddReview: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "addReview.json"
+        let method: HTTPMethod = .post
+        let path: String = "addReview"
 
         let id: Int
         let text: String

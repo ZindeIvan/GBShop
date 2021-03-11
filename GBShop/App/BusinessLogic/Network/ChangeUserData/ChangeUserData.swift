@@ -50,8 +50,8 @@ extension ChangeUserData: ChangeUserDataRequestFactory {
 extension ChangeUserData {
     struct ChangeUserData: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "changeUserData.json"
+        let method: HTTPMethod = .post
+        let path: String = "changeUserData"
 
         let id: Int
         let login: String
