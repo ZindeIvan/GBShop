@@ -10,4 +10,9 @@ import Foundation
 struct SignUpResult: Codable {
     let result: Int
     let userMessage: String
+
+    enum CodingKeys: String, CodingKey {
+        case userMessage = "user_message"
+        case result
+    }
 }

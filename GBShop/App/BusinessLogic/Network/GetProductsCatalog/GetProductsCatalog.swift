@@ -38,8 +38,8 @@ extension GetProductsCatalog: GetProductsCatalogRequestFactory {
 extension GetProductsCatalog {
     struct GetProductsCatalog: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "catalogData.json"
+        let method: HTTPMethod = .post
+        let path: String = "catalogData"
 
         let pageNumber: Int
         let categoryId: Int

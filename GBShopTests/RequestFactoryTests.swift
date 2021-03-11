@@ -13,7 +13,7 @@ class RequestFactoryTests: XCTestCase {
 
     override func setUpWithError() throws {
         requestFactory = RequestFactory(
-            baseURL: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")
+            baseURL: "https://infinite-depths-93698.herokuapp.com/")
     }
 
     override func tearDownWithError() throws {
@@ -112,7 +112,7 @@ class RequestFactoryTests: XCTestCase {
             switch response.result {
             case .success(let productsCatalog):
                 XCTAssertEqual(productsCatalog.count, 2)
-                XCTAssertEqual(productsCatalog[0].id, 123)
+                XCTAssertEqual(productsCatalog[0].id, 1)
                 XCTAssertEqual(productsCatalog[0].productName, "Ноутбук")
                 XCTAssertEqual(productsCatalog[0].price, 45600)
                 XCTAssertEqual(productsCatalog[1].id, 456)
