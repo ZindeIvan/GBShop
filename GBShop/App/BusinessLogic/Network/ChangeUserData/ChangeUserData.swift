@@ -12,8 +12,9 @@ class ChangeUserData: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
-    
+    let baseUrl = URL(string:
+                        "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+
     init(
         errorParser: AbstractErrorParser,
         sessionManager: Session,
@@ -25,8 +26,22 @@ class ChangeUserData: AbstractRequestFactory {
 }
 
 extension ChangeUserData: ChangeUserDataRequestFactory {
-    func changeUserData(id: Int, userName: String, password: String, email: String, gender: String, creditCard: String, bio: String, completionHandler: @escaping (AFDataResponse<ChangeUserDataResult>) -> Void) {
-        let requestModel = ChangeUserData( baseUrl: baseUrl, id: id, login: userName, password: password, email: email, gender: gender, creditCard: creditCard, bio: bio)
+    func changeUserData(id: Int,
+                        userName: String,
+                        password: String,
+                        email: String,
+                        gender: String,
+                        creditCard: String,
+                        bio: String,
+                        completionHandler: @escaping (AFDataResponse<ChangeUserDataResult>) -> Void) {
+        let requestModel = ChangeUserData( baseUrl: baseUrl,
+                                           id: id,
+                                           login: userName,
+                                           password: password,
+                                           email: email,
+                                           gender: gender,
+                                           creditCard: creditCard,
+                                           bio: bio)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
@@ -36,7 +51,7 @@ extension ChangeUserData {
         let baseUrl: URL
         let method: HTTPMethod = .get
         let path: String = "changeUserData.json"
-        
+
         let id: Int
         let login: String
         let password: String

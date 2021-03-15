@@ -27,6 +27,16 @@
 		B518C3A625DD8CF000433FA6 /* ChangeUserDataRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B518C3A525DD8CF000433FA6 /* ChangeUserDataRequestFactory.swift */; };
 		B518C3AE25DD8D0400433FA6 /* ChangeUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B518C3AD25DD8D0400433FA6 /* ChangeUserData.swift */; };
 		B518C3B325DD8D7800433FA6 /* ChangeUserDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B518C3B225DD8D7800433FA6 /* ChangeUserDataResult.swift */; };
+		B52278C425F09B9B0033E06D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B52278C325F09B9B0033E06D /* .swiftlint.yml */; };
+		B52278CA25F0A4FF0033E06D /* AddReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52278C925F0A4FF0033E06D /* AddReview.swift */; };
+		B52278CF25F0A5150033E06D /* AddReviewRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52278CE25F0A5150033E06D /* AddReviewRequestFactory.swift */; };
+		B52278D425F0A9EB0033E06D /* AddReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52278D325F0A9EB0033E06D /* AddReviewResult.swift */; };
+		B52278DA25F0AD820033E06D /* RemoveReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52278D925F0AD820033E06D /* RemoveReview.swift */; };
+		B52278E225F0AD970033E06D /* RemoveReviewRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52278E125F0AD970033E06D /* RemoveReviewRequestFactory.swift */; };
+		B52278E725F0ADBD0033E06D /* RemoveReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52278E625F0ADBD0033E06D /* RemoveReviewResult.swift */; };
+		B52278ED25F0B2F40033E06D /* ApproveReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52278EC25F0B2F40033E06D /* ApproveReview.swift */; };
+		B52278F225F0B31E0033E06D /* ApproveReviewRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52278F125F0B31E0033E06D /* ApproveReviewRequestFactory.swift */; };
+		B52278F725F0B33E0033E06D /* ApproveReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52278F625F0B33E0033E06D /* ApproveReviewResult.swift */; };
 		B52FD23C25E2BE3600DC184F /* RequestFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52FD23B25E2BE3600DC184F /* RequestFactoryTests.swift */; };
 		B52FD24825E3DF9B00DC184F /* GetProductsCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52FD24725E3DF9B00DC184F /* GetProductsCatalog.swift */; };
 		B52FD25625E3DFFA00DC184F /* GetProductsCatalogRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52FD25525E3DFFA00DC184F /* GetProductsCatalogRequestFactory.swift */; };
@@ -78,6 +88,16 @@
 		B518C3A525DD8CF000433FA6 /* ChangeUserDataRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserDataRequestFactory.swift; sourceTree = "<group>"; };
 		B518C3AD25DD8D0400433FA6 /* ChangeUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserData.swift; sourceTree = "<group>"; };
 		B518C3B225DD8D7800433FA6 /* ChangeUserDataResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserDataResult.swift; sourceTree = "<group>"; };
+		B52278C325F09B9B0033E06D /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		B52278C925F0A4FF0033E06D /* AddReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReview.swift; sourceTree = "<group>"; };
+		B52278CE25F0A5150033E06D /* AddReviewRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewRequestFactory.swift; sourceTree = "<group>"; };
+		B52278D325F0A9EB0033E06D /* AddReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewResult.swift; sourceTree = "<group>"; };
+		B52278D925F0AD820033E06D /* RemoveReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReview.swift; sourceTree = "<group>"; };
+		B52278E125F0AD970033E06D /* RemoveReviewRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReviewRequestFactory.swift; sourceTree = "<group>"; };
+		B52278E625F0ADBD0033E06D /* RemoveReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReviewResult.swift; sourceTree = "<group>"; };
+		B52278EC25F0B2F40033E06D /* ApproveReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveReview.swift; sourceTree = "<group>"; };
+		B52278F125F0B31E0033E06D /* ApproveReviewRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveReviewRequestFactory.swift; sourceTree = "<group>"; };
+		B52278F625F0B33E0033E06D /* ApproveReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveReviewResult.swift; sourceTree = "<group>"; };
 		B52FD23B25E2BE3600DC184F /* RequestFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactoryTests.swift; sourceTree = "<group>"; };
 		B52FD24725E3DF9B00DC184F /* GetProductsCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductsCatalog.swift; sourceTree = "<group>"; };
 		B52FD25525E3DFFA00DC184F /* GetProductsCatalogRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductsCatalogRequestFactory.swift; sourceTree = "<group>"; };
@@ -134,6 +154,9 @@
 				B518C3A425DD8CA900433FA6 /* ChangeUserData */,
 				B52FD24625E3DEBB00DC184F /* GetProductsCatalog */,
 				B52FD25F25E3E42F00DC184F /* GetProductById */,
+				B52278C825F0A4B20033E06D /* AddReview */,
+				B52278D825F0AD5D0033E06D /* RemoveReview */,
+				B52278EB25F0B2A90033E06D /* ApproveReview */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -186,6 +209,33 @@
 			path = ChangeUserData;
 			sourceTree = "<group>";
 		};
+		B52278C825F0A4B20033E06D /* AddReview */ = {
+			isa = PBXGroup;
+			children = (
+				B52278CE25F0A5150033E06D /* AddReviewRequestFactory.swift */,
+				B52278C925F0A4FF0033E06D /* AddReview.swift */,
+			);
+			path = AddReview;
+			sourceTree = "<group>";
+		};
+		B52278D825F0AD5D0033E06D /* RemoveReview */ = {
+			isa = PBXGroup;
+			children = (
+				B52278E125F0AD970033E06D /* RemoveReviewRequestFactory.swift */,
+				B52278D925F0AD820033E06D /* RemoveReview.swift */,
+			);
+			path = RemoveReview;
+			sourceTree = "<group>";
+		};
+		B52278EB25F0B2A90033E06D /* ApproveReview */ = {
+			isa = PBXGroup;
+			children = (
+				B52278F125F0B31E0033E06D /* ApproveReviewRequestFactory.swift */,
+				B52278EC25F0B2F40033E06D /* ApproveReview.swift */,
+			);
+			path = ApproveReview;
+			sourceTree = "<group>";
+		};
 		B52FD24625E3DEBB00DC184F /* GetProductsCatalog */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +285,9 @@
 				B518C39325DD895900433FA6 /* LogoutResult.swift */,
 				B518C35525DD6D8B00433FA6 /* LoginResult.swift */,
 				B518C35A25DD6DAC00433FA6 /* User.swift */,
+				B52278D325F0A9EB0033E06D /* AddReviewResult.swift */,
+				B52278E625F0ADBD0033E06D /* RemoveReviewResult.swift */,
+				B52278F625F0B33E0033E06D /* ApproveReviewResult.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -281,6 +334,7 @@
 		B5EEDD6825D83F2400364C1A = {
 			isa = PBXGroup;
 			children = (
+				B52278C325F09B9B0033E06D /* .swiftlint.yml */,
 				B5EEDD7325D83F2400364C1A /* GBShop */,
 				B5EEDD8A25D83F2600364C1A /* GBShopTests */,
 				B5EEDD9525D83F2600364C1A /* GBShopUITests */,
@@ -337,6 +391,7 @@
 				B5EEDD6D25D83F2400364C1A /* Sources */,
 				B5EEDD6E25D83F2400364C1A /* Frameworks */,
 				B5EEDD6F25D83F2400364C1A /* Resources */,
+				B50F38C625F0900400D6FB27 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -436,6 +491,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52278C425F09B9B0033E06D /* .swiftlint.yml in Resources */,
 				B5EEDD8125D83F2500364C1A /* LaunchScreen.storyboard in Resources */,
 				B5EEDD7E25D83F2500364C1A /* Assets.xcassets in Resources */,
 			);
@@ -457,6 +513,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B50F38C625F0900400D6FB27 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B5EEDD6D25D83F2400364C1A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -465,6 +541,7 @@
 				B518C38725DD88DF00433FA6 /* LogoutRequestFactory.swift in Sources */,
 				B518C36A25DD6E8700433FA6 /* RequestFactory.swift in Sources */,
 				B518C33725DC327200433FA6 /* AbstractErrorParser.swift in Sources */,
+				B52278E725F0ADBD0033E06D /* RemoveReviewResult.swift in Sources */,
 				B518C34725DD6BE400433FA6 /* ResponseCodable.swift in Sources */,
 				B518C37725DD7C2200433FA6 /* SignUpResult.swift in Sources */,
 				B52FD26E25E3EA2D00DC184F /* ProductResult.swift in Sources */,
@@ -475,15 +552,23 @@
 				B518C35125DD6CD100433FA6 /* RequestRouter.swift in Sources */,
 				B518C37C25DD7C9400433FA6 /* SignUpRequestFactory.swift in Sources */,
 				B5EEDD7525D83F2400364C1A /* AppDelegate.swift in Sources */,
+				B52278CA25F0A4FF0033E06D /* AddReview.swift in Sources */,
+				B52278F225F0B31E0033E06D /* ApproveReviewRequestFactory.swift in Sources */,
 				B518C35625DD6D8B00433FA6 /* LoginResult.swift in Sources */,
+				B52278DA25F0AD820033E06D /* RemoveReview.swift in Sources */,
 				B518C3A625DD8CF000433FA6 /* ChangeUserDataRequestFactory.swift in Sources */,
 				B52FD26925E3E48100DC184F /* GetProductById.swift in Sources */,
 				B518C38F25DD88F800433FA6 /* Logout.swift in Sources */,
+				B52278CF25F0A5150033E06D /* AddReviewRequestFactory.swift in Sources */,
 				B518C36525DD6E4D00433FA6 /* Auth.swift in Sources */,
 				B518C35B25DD6DAC00433FA6 /* User.swift in Sources */,
 				B5EEDD7725D83F2400364C1A /* SceneDelegate.swift in Sources */,
 				B518C3B325DD8D7800433FA6 /* ChangeUserDataResult.swift in Sources */,
+				B52278E225F0AD970033E06D /* RemoveReviewRequestFactory.swift in Sources */,
 				B518C34C25DD6C9800433FA6 /* AbstractRequestFactory.swift in Sources */,
+				B52278ED25F0B2F40033E06D /* ApproveReview.swift in Sources */,
+				B52278D425F0A9EB0033E06D /* AddReviewResult.swift in Sources */,
+				B52278F725F0B33E0033E06D /* ApproveReviewResult.swift in Sources */,
 				B52FD26125E3E46800DC184F /* GetProductByIdRequestFactory.swift in Sources */,
 				B52FD25B25E3E0EA00DC184F /* ProductsCatalogResult.swift in Sources */,
 				B518C39425DD895900433FA6 /* LogoutResult.swift in Sources */,

@@ -35,7 +35,7 @@ class RequestFactoryTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
         }
-        
+
         waitForExpectations(timeout: 10)
     }
 
@@ -52,7 +52,7 @@ class RequestFactoryTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
         }
-        
+
         waitForExpectations(timeout: 10)
     }
 
@@ -60,7 +60,13 @@ class RequestFactoryTests: XCTestCase {
 
         let signUp = requestFactory.makeSignUpRequestFatory()
         let signedUp = expectation(description: "Signed up")
-        signUp.signUp(id: 123, userName: "Somebody", password: "mypassword", email: "some@some.ru", gender: "m", creditCard: "9872389-2424-234224-234", bio: "This is good! I think I will switch to another language") { response in
+        signUp.signUp(id: 123,
+                      userName: "Somebody",
+                      password: "mypassword",
+                      email: "some@some.ru",
+                      gender: "m",
+                      creditCard: "9872389-2424-234224-234",
+                      bio: "This is good! I think I will switch to another language") { response in
             switch response.result {
             case .success(let signUp):
                 XCTAssertEqual(signUp.result, 1)
@@ -70,7 +76,7 @@ class RequestFactoryTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
         }
-        
+
         waitForExpectations(timeout: 10)
     }
 
@@ -78,7 +84,13 @@ class RequestFactoryTests: XCTestCase {
 
         let changeUserData = requestFactory.makeChangeUserDataRequestFatory()
         let cangedUserData = expectation(description: "User data was changed")
-        changeUserData.changeUserData(id: 123, userName: "Somebody", password: "mypassword", email: "some@some.ru", gender: "m", creditCard: "9872389-2424-234224-234", bio: "This is good! I think I will switch to another language") { response in
+        changeUserData.changeUserData(id: 123,
+                                      userName: "Somebody",
+                                      password: "mypassword",
+                                      email: "some@some.ru",
+                                      gender: "m",
+                                      creditCard: "9872389-2424-234224-234",
+                                      bio: "This is good! I think I will switch to another language") { response in
             switch response.result {
             case .success(let changeUserData):
                 XCTAssertEqual(changeUserData.result, 1)
@@ -87,10 +99,10 @@ class RequestFactoryTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
         }
-        
+
         waitForExpectations(timeout: 10)
     }
-    
+
     func testRequestFactoryGetProductsCatalog() throws {
 
         let getProductsCatalog = requestFactory.makeGetProductsCatalogRequestFactory()
@@ -110,10 +122,10 @@ class RequestFactoryTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
         }
-        
+
         waitForExpectations(timeout: 10)
     }
-    
+
     func testRequestFactoryGetProductById() throws {
 
         let getProductById = requestFactory.makeGetProductByIdRequestFactory()
@@ -130,8 +142,59 @@ class RequestFactoryTests: XCTestCase {
                 XCTFail(error.localizedDescription)
             }
         }
-        
+
         waitForExpectations(timeout: 10)
     }
 
+    func testRequestFactoryAddReview() throws {
+
+        let addReview = requestFactory.makeAddReviewRequestFactory()
+        let addedReview = expectation(description: "Added review")
+        addReview.addReview(id: 123, text: "Текст отзыва") { response in
+            switch response.result {
+            case .success(let addReview):
+                XCTAssertEqual(addReview.result, 1)
+                XCTAssertEqual(addReview.userMessage, "Ваш отзыв был передан на модерацию")
+                addedReview.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+
+        waitForExpectations(timeout: 10)
+    }
+
+    func testRequestFactoryRemoveReview() throws {
+
+        let removeReview = requestFactory.makeRemoveReviewRequestFactory()
+        let removedReview = expectation(description: "Removed review")
+        removeReview.removeReview(id: 123) { response in
+            switch response.result {
+            case .success(let removeReview):
+                XCTAssertEqual(removeReview.result, 1)
+                removedReview.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+
+        waitForExpectations(timeout: 10)
+    }
+
+    func testRequestFactoryApproveReview() throws {
+
+        let approveReview = requestFactory.makeApproveReviewRequestFactory()
+        let approvedReview = expectation(description: "Approved review")
+        approveReview.approveReview(id: 123) { response in
+            switch response.result {
+            case .success(let approveReview):
+                XCTAssertEqual(approveReview.result, 1)
+                approvedReview.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+
+        waitForExpectations(timeout: 10)
+    }
 }

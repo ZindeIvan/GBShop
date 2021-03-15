@@ -12,8 +12,9 @@ class SignUp: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
-    
+    let baseUrl = URL(string:
+                        "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+
     init(
         errorParser: AbstractErrorParser,
         sessionManager: Session,
@@ -25,8 +26,22 @@ class SignUp: AbstractRequestFactory {
 }
 
 extension SignUp: SignUpRequestFactory {
-    func signUp(id: Int, userName: String, password: String, email: String, gender: String, creditCard: String, bio: String, completionHandler: @escaping (AFDataResponse<SignUpResult>) -> Void) {
-        let requestModel = SignUp( baseUrl: baseUrl, id: id, login: userName, password: password, email: email, gender: gender, creditCard: creditCard, bio: bio)
+    func signUp(id: Int,
+                userName: String,
+                password: String,
+                email: String,
+                gender: String,
+                creditCard: String,
+                bio: String,
+                completionHandler: @escaping (AFDataResponse<SignUpResult>) -> Void) {
+        let requestModel = SignUp( baseUrl: baseUrl,
+                                   id: id,
+                                   login: userName,
+                                   password: password,
+                                   email: email,
+                                   gender: gender,
+                                   creditCard: creditCard,
+                                   bio: bio)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
@@ -36,7 +51,7 @@ extension SignUp {
         let baseUrl: URL
         let method: HTTPMethod = .get
         let path: String = "registerUser.json"
-        
+
         let id: Int
         let login: String
         let password: String

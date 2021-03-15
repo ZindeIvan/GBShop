@@ -12,8 +12,9 @@ class GetProductsCatalog: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
-    
+    let baseUrl = URL(string:
+                        "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+
     init(
         errorParser: AbstractErrorParser,
         sessionManager: Session,
@@ -25,7 +26,9 @@ class GetProductsCatalog: AbstractRequestFactory {
 }
 
 extension GetProductsCatalog: GetProductsCatalogRequestFactory {
-    func getProductsCatalog(pageNumber: Int, categoryId: Int, completionHandler: @escaping (AFDataResponse<[ProductsCatalogResult]>) -> Void) {
+    func getProductsCatalog(pageNumber: Int,
+                            categoryId: Int,
+                            completionHandler: @escaping (AFDataResponse<[ProductsCatalogResult]>) -> Void) {
         let requestModel = GetProductsCatalog(baseUrl: baseUrl, pageNumber: pageNumber, categoryId: categoryId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
@@ -36,7 +39,7 @@ extension GetProductsCatalog {
         let baseUrl: URL
         let method: HTTPMethod = .get
         let path: String = "catalogData.json"
-        
+
         let pageNumber: Int
         let categoryId: Int
         var parameters: Parameters? {
