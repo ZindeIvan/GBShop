@@ -10,13 +10,15 @@ import UIKit
 final class AppStartManager {
 
     private var window: UIWindow?
+    private var requestFactory : RequestFactory
 
-    init(window: UIWindow?) {
+    init(window: UIWindow?, requestFactory : RequestFactory) {
         self.window = window
+        self.requestFactory = requestFactory
     }
 
     func start() {
-        window?.rootViewController = LoginViewController()
+        window?.rootViewController = LoginViewController(requestFactory: requestFactory)
         window?.makeKeyAndVisible()
     }
 }

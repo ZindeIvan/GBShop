@@ -71,11 +71,11 @@ class LoginView : UIView {
         let buttonsWidth : CGFloat = 200.0
         let elementsHeight : CGFloat = 32.0
         let elementsHeightSpacing : CGFloat = 40.0
-        self.backgroundColor = .white
-        self.addSubview(loginTextField)
-        self.addSubview(passwordTextField)
-        self.addSubview(loginButton)
-        self.addSubview(signUpButton)
+        backgroundColor = .white
+        addSubview(loginTextField)
+        addSubview(passwordTextField)
+        addSubview(loginButton)
+        addSubview(signUpButton)
         NSLayoutConstraint.activate([
             loginTextField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -elementsHeightSpacing),
             loginTextField.centerXAnchor.constraint(equalTo: centerXAnchor),

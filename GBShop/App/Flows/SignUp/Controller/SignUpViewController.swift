@@ -9,14 +9,14 @@ import UIKit
 
 class SignUpViewController : UIViewController {
 
-    private var signUpView: SignUpView {
-        return self.view as! SignUpView
-    }
+    private lazy var signUpView: SignUpView = {
+        return SignUpView()
+    }()
 
-    private var  requestFactory = RequestFactory(
-        baseURL: "https://infinite-depths-93698.herokuapp.com/")
+    private var requestFactory : RequestFactory
 
-    init() {
+    init(requestFactory: RequestFactory) {
+        self.requestFactory = requestFactory
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -25,7 +25,7 @@ class SignUpViewController : UIViewController {
     }
 
     override func loadView() {
-        self.view = SignUpView()
+        view = signUpView
     }
 
     override func viewDidLoad() {
@@ -34,38 +34,43 @@ class SignUpViewController : UIViewController {
     }
 
     private func configureUI() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = true
         signUpView.signUpButton.addTarget(self, action: #selector(signUpButtonAction), for: .touchUpInside)
         signUpView.backButton.addTarget(self, action: #selector(backButtonAction), for: .touchUpInside)
     }
 
-    @objc func backButtonAction(sender: UIButton!) {
-        self.dismiss(animated: true)
-    }
-
-    @objc func signUpButtonAction(sender: UIButton!) {
-        let signUp = requestFactory.makeSignUpRequestFatory()
+    private func getGender() -> String {
         var gender = "m"
         if (signUpView.genderSegmentedControl.selectedSegmentIndex == 1) {
             gender = "f"
         }
+        return gender
+    }
+
+    @objc func backButtonAction(sender: UIButton!) {
+        dismiss(animated: true)
+    }
+
+    @objc func signUpButtonAction(sender: UIButton!) {
+        let signUp = requestFactory.makeSignUpRequestFatory()
+
         signUp.signUp(id: 123,
                       userName: signUpView.usernameTextField.text ?? "",
                       password: signUpView.passwordTextField.text ?? "",
                       email: signUpView.emailTextField.text ?? "",
-                      gender: gender,
+                      gender: getGender(),
                       creditCard: signUpView.creditCardTextField.text ?? "",
                       bio: signUpView.bioTextField.text ?? "") { response in
             switch response.result {
             case .success(let login):
                 guard login.result == 1 else { return }
                 DispatchQueue.main.async {
-                    let userInfoPageViewController = UserInfoPageViewController()
+                    let userInfoPageViewController = UserInfoPageViewController(requestFactory: self.requestFactory)
                     userInfoPageViewController.modalPresentationStyle = .fullScreen
                     userInfoPageViewController.modalTransitionStyle = .crossDissolve
                     self.present(userInfoPageViewController, animated: true, completion: nil)
                 }
-                print(login.result)
+                print(login.userMessage)
             case .failure(let error):
                 print(error.localizedDescription)
             }

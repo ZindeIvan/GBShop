@@ -9,14 +9,14 @@ import UIKit
 
 class LoginViewController : UIViewController {
 
-    private var loginView: LoginView {
-        return self.view as! LoginView
-    }
+    private lazy var loginView : LoginView = {
+        return LoginView()
+    }()
 
-    private var  requestFactory = RequestFactory(
-        baseURL: "https://infinite-depths-93698.herokuapp.com/")
+    private var requestFactory : RequestFactory
 
-    init() {
+    init(requestFactory: RequestFactory) {
+        self.requestFactory = requestFactory
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -25,7 +25,7 @@ class LoginViewController : UIViewController {
     }
 
     override func loadView() {
-        self.view = LoginView()
+        view = loginView
     }
 
     override func viewDidLoad() {
@@ -34,24 +34,25 @@ class LoginViewController : UIViewController {
     }
 
     private func configureUI() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = true
         loginView.loginButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
         loginView.signUpButton.addTarget(self, action: #selector(signUpButtonAction), for: .touchUpInside)
     }
 
     @objc func loginButtonAction(sender: UIButton!) {
         let auth = requestFactory.makeAuthRequestFatory()
-        auth.login(userName: "Somebody", password: "mypassword") { response in
+        auth.login(userName: loginView.loginTextField.text ?? "",
+                   password: loginView.passwordTextField.text ?? "") { response in
             switch response.result {
             case .success(let login):
                 guard login.result == 1 else { return }
                 DispatchQueue.main.async {
-                    let userInfoController = UserInfoPageViewController()
+                    let userInfoController = UserInfoPageViewController(requestFactory: self.requestFactory)
                     userInfoController.modalPresentationStyle = .fullScreen
                     userInfoController.modalTransitionStyle = .crossDissolve
                     self.present(userInfoController, animated: true, completion: nil)
                 }
-                print(login.result)
+                print("Loged in")
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -59,7 +60,7 @@ class LoginViewController : UIViewController {
     }
 
     @objc func signUpButtonAction(sender: UIButton!) {
-        let signUpController = SignUpViewController()
+        let signUpController = SignUpViewController(requestFactory: self.requestFactory)
         signUpController.modalPresentationStyle = .fullScreen
         signUpController.modalTransitionStyle = .crossDissolve
         present(signUpController, animated: true, completion: nil)

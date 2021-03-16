@@ -9,14 +9,14 @@ import UIKit
 
 class UserInfoPageViewController: UIViewController {
 
-    private var userInfoPageView: UserInfoPageView {
-        return self.view as! UserInfoPageView
-    }
+    private lazy var userInfoPageView: UserInfoPageView = {
+        return UserInfoPageView()
+    }()
 
-    private var  requestFactory = RequestFactory(
-        baseURL: "https://infinite-depths-93698.herokuapp.com/")
+    private var requestFactory : RequestFactory
 
-    init() {
+    init(requestFactory: RequestFactory) {
+        self.requestFactory = requestFactory
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -25,7 +25,7 @@ class UserInfoPageViewController: UIViewController {
     }
 
     override func loadView() {
-        self.view = UserInfoPageView()
+        view = userInfoPageView
     }
 
     override func viewDidLoad() {
@@ -34,34 +34,50 @@ class UserInfoPageViewController: UIViewController {
     }
 
     private func configureUI() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = true
         userInfoPageView.logoutButton.addTarget(self, action: #selector(logoutButtonAction), for: .touchUpInside)
         userInfoPageView.changeDataButton.addTarget(self,
                                                     action: #selector(changeDataButtonAction),
                                                     for: .touchUpInside)
     }
 
-    @objc func logoutButtonAction(sender: UIButton!) {
-        self.dismiss(animated: true)
-    }
-
-    @objc func changeDataButtonAction(sender: UIButton!) {
-        let changeData = requestFactory.makeChangeUserDataRequestFatory()
+    private func getGender() -> String {
         var gender = "m"
         if (userInfoPageView.genderSegmentedControl.selectedSegmentIndex == 1) {
             gender = "f"
         }
+        return gender
+    }
+
+    @objc func logoutButtonAction(sender: UIButton!) {
+        let logout = requestFactory.makeLogoutRequestFatory()
+        logout.logout(id: 123) { (response) in
+            switch response.result {
+            case .success(let changeData):
+                guard changeData.result == 1 else { return }
+                print(changeData.result)
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    @objc func changeDataButtonAction(sender: UIButton!) {
+        let changeData = requestFactory.makeChangeUserDataRequestFatory()
         changeData.changeUserData(id: 123,
                       userName: userInfoPageView.usernameTextField.text ?? "",
                       password: userInfoPageView.passwordTextField.text ?? "",
                       email: userInfoPageView.emailTextField.text ?? "",
-                      gender: gender,
+                      gender: getGender(),
                       creditCard: userInfoPageView.creditCardTextField.text ?? "",
                       bio: userInfoPageView.bioTextField.text ?? "") { response in
             switch response.result {
             case .success(let changeData):
                 guard changeData.result == 1 else { return }
-                print(changeData.result)
+                print("Data was chanched")
             case .failure(let error):
                 print(error.localizedDescription)
             }

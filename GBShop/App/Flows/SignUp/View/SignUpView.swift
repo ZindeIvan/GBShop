@@ -175,35 +175,35 @@ class SignUpView : UIView {
     }
 
     private func setUpSubviews() {
-        self.backgroundColor = .white
-        self.addSubview(usernameTextField)
-        self.addSubview(passwordTextField)
-        self.addSubview(emailTextField)
-        self.addSubview(genderSegmentedControl)
-        self.addSubview(creditCardTextField)
-        self.addSubview(bioTextField)
-        self.addSubview(usernameLabel)
-        self.addSubview(passwordLabel)
-        self.addSubview(emailLabel)
-        self.addSubview(genderLabel)
-        self.addSubview(creditCardLabel)
-        self.addSubview(bioLabel)
-        self.addSubview(signUpButton)
-        self.addSubview(backButton)
+        backgroundColor = .white
+        addSubview(usernameTextField)
+        addSubview(passwordTextField)
+        addSubview(emailTextField)
+        addSubview(genderSegmentedControl)
+        addSubview(creditCardTextField)
+        addSubview(bioTextField)
+        addSubview(usernameLabel)
+        addSubview(passwordLabel)
+        addSubview(emailLabel)
+        addSubview(genderLabel)
+        addSubview(creditCardLabel)
+        addSubview(bioLabel)
+        addSubview(signUpButton)
+        addSubview(backButton)
         setUpConstraints()
     }
 
     private func setUpConstraints() {
-        let safeArea = self.safeAreaLayoutGuide
+        let safeArea = safeAreaLayoutGuide
         let textFieldslsWidth : CGFloat = 200.0
         let labelsWidth : CGFloat = 100.0
         let heightSpacing : CGFloat = 20.0
         let topScreenSpacing : CGFloat = 40.0
         let widthSpacing : CGFloat = 20.0
-        let buttonsWidth : CGFloat = 100.0
+        let buttonsWidth : CGFloat = 120.0
         let leadingScreenSpacing : CGFloat = 10.0
         NSLayoutConstraint.activate([
-            usernameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: topScreenSpacing),
+            usernameLabel.topAnchor.constraint(equalTo: topAnchor, constant: topScreenSpacing),
             usernameLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: leadingScreenSpacing),
             usernameLabel.widthAnchor.constraint(equalToConstant: labelsWidth),
             passwordLabel.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: heightSpacing),
@@ -221,7 +221,7 @@ class SignUpView : UIView {
             bioLabel.topAnchor.constraint(equalTo: creditCardLabel.bottomAnchor, constant: heightSpacing),
             bioLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: leadingScreenSpacing),
             bioLabel.widthAnchor.constraint(equalToConstant: labelsWidth),
-            usernameTextField.topAnchor.constraint(equalTo: self.topAnchor, constant: topScreenSpacing),
+            usernameTextField.topAnchor.constraint(equalTo: topAnchor, constant: topScreenSpacing),
             usernameTextField.leadingAnchor.constraint(equalTo: usernameLabel.trailingAnchor, constant: widthSpacing),
             usernameTextField.widthAnchor.constraint(equalToConstant: textFieldslsWidth),
             passwordTextField.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: heightSpacing),
