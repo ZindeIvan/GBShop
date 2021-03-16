@@ -1,14 +1,14 @@
 //
-//  ApproveReview.swift
+//  PayBasket.swift
 //  GBShop
 //
-//  Created by Зинде Иван on 3/4/21.
+//  Created by Зинде Иван on 3/8/21.
 //
 
 import Foundation
 import Alamofire
 
-class ApproveReview: AbstractRequestFactory {
+class PayBasket: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
@@ -26,23 +26,23 @@ class ApproveReview: AbstractRequestFactory {
     }
 }
 
-extension ApproveReview: ApproveReviewRequestFactory {
-    func approveReview(id: Int, completionHandler: @escaping (AFDataResponse<ApproveReviewResult>) -> Void) {
-        let requestModel = ApproveReview(baseUrl: baseUrl, id: id)
+extension PayBasket: PayBasketRequestFactory {
+    func payBasket(id: Int, completionHandler: @escaping (AFDataResponse<PayBasketResult>) -> Void) {
+        let requestModel = PayBasket(baseUrl: baseUrl, id: id)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
 
-extension ApproveReview {
-    struct ApproveReview: RequestRouter {
+extension PayBasket {
+    struct PayBasket: RequestRouter {
         let baseUrl: URL
         let method: HTTPMethod = .post
-        let path: String = "approveReview"
+        let path: String = "payBasket"
 
         let id: Int
         var parameters: Parameters? {
             return [
-                "id_comment": id
+                "id_user": id
             ]
         }
     }

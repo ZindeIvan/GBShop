@@ -10,6 +10,12 @@ import Alamofire
 
 class RequestFactory {
 
+    private var baseURL : String
+
+    init(baseURL : String) {
+        self.baseURL = baseURL
+    }
+
     func makeErrorParser() -> AbstractErrorParser {
         return ErrorParser()
     }
@@ -26,46 +32,105 @@ class RequestFactory {
 
     func makeAuthRequestFatory() -> AuthRequestFactory {
         let errorParser = makeErrorParser()
-        return Auth(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+        return Auth(baseURL: baseURL,
+                    errorParser: errorParser,
+                    sessionManager: commonSession,
+                    queue: sessionQueue)
     }
 
     func makeSignUpRequestFatory() -> SignUpRequestFactory {
         let errorParser = makeErrorParser()
-        return SignUp(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+        return SignUp(baseURL: baseURL,
+                      errorParser: errorParser,
+                      sessionManager: commonSession,
+                      queue: sessionQueue)
     }
 
     func makeLogoutRequestFatory() -> LogoutRequestFactory {
         let errorParser = makeErrorParser()
-        return Logout(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+        return Logout(baseURL: baseURL,
+                      errorParser: errorParser,
+                      sessionManager: commonSession,
+                      queue: sessionQueue)
     }
 
     func makeChangeUserDataRequestFatory() -> ChangeUserDataRequestFactory {
         let errorParser = makeErrorParser()
-        return ChangeUserData(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+        return ChangeUserData(baseURL: baseURL,
+                              errorParser: errorParser,
+                              sessionManager: commonSession,
+                              queue: sessionQueue)
     }
 
     func makeGetProductsCatalogRequestFactory() -> GetProductsCatalogRequestFactory {
         let errorParser = makeErrorParser()
-        return GetProductsCatalog(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+        return GetProductsCatalog(baseURL: baseURL,
+                                  errorParser: errorParser,
+                                  sessionManager: commonSession,
+                                  queue: sessionQueue)
     }
 
     func makeGetProductByIdRequestFactory() -> GetProductByIdRequestFactory {
         let errorParser = makeErrorParser()
-        return GetProductById(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+        return GetProductById(baseURL: baseURL,
+                              errorParser: errorParser,
+                              sessionManager: commonSession,
+                              queue: sessionQueue)
     }
 
     func makeAddReviewRequestFactory() -> AddReviewRequestFactory {
         let errorParser = makeErrorParser()
-        return AddReview(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+        return AddReview(baseURL: baseURL,
+                         errorParser: errorParser,
+                         sessionManager: commonSession,
+                         queue: sessionQueue)
     }
 
     func makeRemoveReviewRequestFactory() -> RemoveReviewRequestFactory {
         let errorParser = makeErrorParser()
-        return RemoveReview(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+        return RemoveReview(baseURL: baseURL,
+                            errorParser: errorParser,
+                            sessionManager: commonSession,
+                            queue: sessionQueue)
     }
 
     func makeApproveReviewRequestFactory() -> ApproveReviewRequestFactory {
         let errorParser = makeErrorParser()
-        return ApproveReview(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+        return ApproveReview(baseURL: baseURL,
+                             errorParser: errorParser,
+                             sessionManager: commonSession,
+                             queue: sessionQueue)
+    }
+
+    func makeGetReviewsRequestFactory() -> GetReviewsRequestFactory {
+        let errorParser = makeErrorParser()
+        return GetReviews(baseURL: baseURL,
+                             errorParser: errorParser,
+                             sessionManager: commonSession,
+                             queue: sessionQueue)
+    }
+
+    func makeAddToBasketRequestFactory() -> AddToBasketRequestFactory {
+        let errorParser = makeErrorParser()
+        return AddToBasket(baseURL: baseURL,
+                             errorParser: errorParser,
+                             sessionManager: commonSession,
+                             queue: sessionQueue)
+    }
+
+    func makeDeleteFromBasketRequestFactory() -> DeleteFromBasketRequestFactory {
+        let errorParser = makeErrorParser()
+        return DeleteFromBasket(baseURL: baseURL,
+                             errorParser: errorParser,
+                             sessionManager: commonSession,
+                             queue: sessionQueue)
+    }
+
+    func makePayBasketRequestFactory() -> PayBasketRequestFactory {
+        let errorParser = makeErrorParser()
+        return PayBasket(baseURL: baseURL,
+                             errorParser: errorParser,
+                             sessionManager: commonSession,
+                             queue: sessionQueue)
     }
 }
