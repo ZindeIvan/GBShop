@@ -63,6 +63,11 @@
 		B550CDF225F6854500D5E0CC /* PayBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = B550CDF125F6854500D5E0CC /* PayBasket.swift */; };
 		B550CDF825F6857300D5E0CC /* PayBasketRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B550CDF725F6857300D5E0CC /* PayBasketRequestFactory.swift */; };
 		B550CE0025F6858C00D5E0CC /* PayBasketResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B550CDFF25F6858C00D5E0CC /* PayBasketResult.swift */; };
+		B560AB4726026AA20086B443 /* ProductsCatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B560AB4626026AA20086B443 /* ProductsCatalogView.swift */; };
+		B560AB4F26026AB10086B443 /* ProductsCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B560AB4E26026AB10086B443 /* ProductsCatalogViewController.swift */; };
+		B560AB5426026AC60086B443 /* ProductsCatalogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B560AB5326026AC60086B443 /* ProductsCatalogCell.swift */; };
+		B560AB59260271B90086B443 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B560AB58260271B90086B443 /* Product.swift */; };
+		B560AB6B26027D270086B443 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B560AB6A26027D270086B443 /* TabBarController.swift */; };
 		B5EEDD7525D83F2400364C1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EEDD7425D83F2400364C1A /* AppDelegate.swift */; };
 		B5EEDD7725D83F2400364C1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EEDD7625D83F2400364C1A /* SceneDelegate.swift */; };
 		B5EEDD7E25D83F2500364C1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5EEDD7D25D83F2500364C1A /* Assets.xcassets */; };
@@ -143,6 +148,11 @@
 		B550CDF125F6854500D5E0CC /* PayBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayBasket.swift; sourceTree = "<group>"; };
 		B550CDF725F6857300D5E0CC /* PayBasketRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayBasketRequestFactory.swift; sourceTree = "<group>"; };
 		B550CDFF25F6858C00D5E0CC /* PayBasketResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayBasketResult.swift; sourceTree = "<group>"; };
+		B560AB4626026AA20086B443 /* ProductsCatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCatalogView.swift; sourceTree = "<group>"; };
+		B560AB4E26026AB10086B443 /* ProductsCatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCatalogViewController.swift; sourceTree = "<group>"; };
+		B560AB5326026AC60086B443 /* ProductsCatalogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCatalogCell.swift; sourceTree = "<group>"; };
+		B560AB58260271B90086B443 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		B560AB6A26027D270086B443 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B5EEDD7125D83F2400364C1A /* GBShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5EEDD7425D83F2400364C1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5EEDD7625D83F2400364C1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -415,6 +425,48 @@
 			path = PayBasket;
 			sourceTree = "<group>";
 		};
+		B560AB43260269CA0086B443 /* ProductsCatalog */ = {
+			isa = PBXGroup;
+			children = (
+				B560AB4426026A1E0086B443 /* View */,
+				B560AB4526026A240086B443 /* Controller */,
+			);
+			path = ProductsCatalog;
+			sourceTree = "<group>";
+		};
+		B560AB4426026A1E0086B443 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B560AB4626026AA20086B443 /* ProductsCatalogView.swift */,
+				B560AB5326026AC60086B443 /* ProductsCatalogCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B560AB4526026A240086B443 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B560AB4E26026AB10086B443 /* ProductsCatalogViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B560AB5D26027C9D0086B443 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				B560AB5E26027CD90086B443 /* ViewController */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		B560AB5E26027CD90086B443 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B560AB6A26027D270086B443 /* TabBarController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		B564AFD025D8431400114E37 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,6 +505,7 @@
 				B550CDD625F680DB00D5E0CC /* AddToBasketResult.swift */,
 				B550CDE925F682F600D5E0CC /* DeleteFromBasketResult.swift */,
 				B550CDFF25F6858C00D5E0CC /* PayBasketResult.swift */,
+				B560AB58260271B90086B443 /* Product.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -470,6 +523,8 @@
 				B517A52125FA374800B4BFC4 /* Login */,
 				B517A52225FA376900B4BFC4 /* SignUp */,
 				B517A52325FA379A00B4BFC4 /* UserInfoPage */,
+				B560AB43260269CA0086B443 /* ProductsCatalog */,
+				B560AB5D26027C9D0086B443 /* TabBarController */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -723,6 +778,7 @@
 				B518C36025DD6DFF00433FA6 /* AuthRequestFactory.swift in Sources */,
 				B550CDBB25F67D8600D5E0CC /* GetReviews.swift in Sources */,
 				B517A52B25FA381000B4BFC4 /* LoginView.swift in Sources */,
+				B560AB4F26026AB10086B443 /* ProductsCatalogViewController.swift in Sources */,
 				B518C35125DD6CD100433FA6 /* RequestRouter.swift in Sources */,
 				B550CDE525F682DD00D5E0CC /* DeleteFromBasketRequestFactory.swift in Sources */,
 				B518C37C25DD7C9400433FA6 /* SignUpRequestFactory.swift in Sources */,
@@ -733,10 +789,13 @@
 				B52278DA25F0AD820033E06D /* RemoveReview.swift in Sources */,
 				B517A54725FA38A400B4BFC4 /* UserInfoPageViewController.swift in Sources */,
 				B518C3A625DD8CF000433FA6 /* ChangeUserDataRequestFactory.swift in Sources */,
+				B560AB5426026AC60086B443 /* ProductsCatalogCell.swift in Sources */,
+				B560AB59260271B90086B443 /* Product.swift in Sources */,
 				B52FD26925E3E48100DC184F /* GetProductById.swift in Sources */,
 				B518C38F25DD88F800433FA6 /* Logout.swift in Sources */,
 				B517A54D25FA5CC100B4BFC4 /* AppStartManager.swift in Sources */,
 				B52278CF25F0A5150033E06D /* AddReviewRequestFactory.swift in Sources */,
+				B560AB6B26027D270086B443 /* TabBarController.swift in Sources */,
 				B518C36525DD6E4D00433FA6 /* Auth.swift in Sources */,
 				B517A54225FA389300B4BFC4 /* UserInfoPageView.swift in Sources */,
 				B550CDC125F67DC300D5E0CC /* GetReviewsRequestFactory.swift in Sources */,
@@ -761,6 +820,7 @@
 				B518C39425DD895900433FA6 /* LogoutResult.swift in Sources */,
 				B52FD25625E3DFFA00DC184F /* GetProductsCatalogRequestFactory.swift in Sources */,
 				B517A53D25FA384800B4BFC4 /* SignUpViewController.swift in Sources */,
+				B560AB4726026AA20086B443 /* ProductsCatalogView.swift in Sources */,
 				B518C33C25DC3A4C00433FA6 /* ErrorParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

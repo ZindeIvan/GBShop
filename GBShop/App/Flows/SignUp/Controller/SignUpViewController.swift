@@ -64,13 +64,10 @@ class SignUpViewController : UIViewController {
             switch response.result {
             case .success(let login):
                 guard login.result == 1 else { return }
-                DispatchQueue.main.async {
-                    let userInfoPageViewController = UserInfoPageViewController(requestFactory: self.requestFactory)
-                    userInfoPageViewController.modalPresentationStyle = .fullScreen
-                    userInfoPageViewController.modalTransitionStyle = .crossDissolve
-                    self.present(userInfoPageViewController, animated: true, completion: nil)
-                }
                 print(login.userMessage)
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }
