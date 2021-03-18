@@ -37,11 +37,12 @@ final class ProductsCatalogCell: UITableViewCell {
 
     func configure(with product: Product) {
         productLabel.text = product.product
-        priceLabel.text = "$ \(product.price)"
+        priceLabel.text = String(format: "%.2f", product.price) + " руб."
     }
 
     override func prepareForReuse() {
-        [productLabel, priceLabel].forEach { $0.text = nil }
+        productLabel.text = nil
+        priceLabel.text = nil
     }
 
     private func configureUI() {

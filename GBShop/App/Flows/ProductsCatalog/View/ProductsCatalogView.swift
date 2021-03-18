@@ -28,7 +28,7 @@ class ProductsCatalogView: UIView {
     }
 
     private func addTableView() {
-        tableView.rowHeight = 40.0
+        tableView.rowHeight = 60.0
         tableView.separatorInset = UIEdgeInsets(top: 0.0, left: 12.0, bottom: 0.0, right: 0.0)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.tableFooterView = UIView()
@@ -39,10 +39,10 @@ class ProductsCatalogView: UIView {
         let safeArea = safeAreaLayoutGuide
 
         NSLayoutConstraint.activate([
-            self.tableView.topAnchor.constraint(equalTo: safeArea.bottomAnchor),
-            self.tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            self.tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            self.tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+            tableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ])
     }
 }

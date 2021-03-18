@@ -29,7 +29,9 @@ class TabBarController: UITabBarController {
 
             let initialTabBar = ProductsCatalogViewController(requestFactory: requestFactory)
             let title = "Products"
-            let tabBarItem = UITabBarItem(title: title, image: nil, selectedImage: nil)
+            let tabBarItem = UITabBarItem(title: title,
+                                          image:UIImage(systemName: "tablecells"),
+                                          selectedImage:UIImage(systemName: "tablecells.fill"))
             initialTabBar.tabBarItem = tabBarItem
 
             return initialTabBar
@@ -39,7 +41,9 @@ class TabBarController: UITabBarController {
 
             let finalTabBar = UserInfoPageViewController(requestFactory: requestFactory)
             let title = "User"
-            let tabBarItem = UITabBarItem(title: title, image: nil, selectedImage: nil)
+            let tabBarItem = UITabBarItem(title: title,
+                                          image:UIImage(systemName: "person.crop.square"),
+                                          selectedImage:UIImage(systemName: "person.crop.square.fill"))
             finalTabBar.tabBarItem = tabBarItem
 
             return finalTabBar
