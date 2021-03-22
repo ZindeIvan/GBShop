@@ -70,7 +70,8 @@ final class ProductsCatalogViewController: UIViewController {
     private func getProductFromProductsResult(productResult: ProductsCatalogResult) -> Product {
         return Product(product: productResult.productName,
                        price: Double(productResult.price),
-                       description: "")
+                       description: "Description placeholder \nDescription placeholder",
+                       id: productResult.id)
     }
 }
 
@@ -88,6 +89,14 @@ extension ProductsCatalogViewController: UITableViewDataSource {
         let product = products[indexPath.row]
         cell.configure(with: product)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let productInfoPageViewController = ProductInfoPageViewController(requestFactory: requestFactory,
+                                                                          product: products[indexPath.row])
+        productInfoPageViewController.modalPresentationStyle = .fullScreen
+        productInfoPageViewController.modalTransitionStyle = .crossDissolve
+        present(productInfoPageViewController, animated: true, completion: nil)
     }
 }
 
