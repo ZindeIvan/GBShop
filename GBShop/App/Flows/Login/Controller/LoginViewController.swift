@@ -47,10 +47,10 @@ class LoginViewController : UIViewController {
             case .success(let login):
                 guard login.result == 1 else { return }
                 DispatchQueue.main.async {
-                    let userInfoController = UserInfoPageViewController(requestFactory: self.requestFactory)
-                    userInfoController.modalPresentationStyle = .fullScreen
-                    userInfoController.modalTransitionStyle = .crossDissolve
-                    self.present(userInfoController, animated: true, completion: nil)
+                    let tabBarController = TabBarController(requestFactory: self.requestFactory)
+                    tabBarController.modalPresentationStyle = .fullScreen
+                    tabBarController.modalTransitionStyle = .crossDissolve
+                    self.present(tabBarController, animated: true, completion: nil)
                 }
                 print("Loged in")
             case .failure(let error):
