@@ -37,8 +37,6 @@ class ProductInfoPageViewController: UIViewController {
     }
 
     private func configureUI() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        productInfoPageView.backButton.addTarget(self, action: #selector(backButtonAction), for: .touchUpInside)
         productInfoPageView.reviewsButton.addTarget(self,
                                                     action: #selector(reviewsButtonAction),
                                                     for: .touchUpInside)
@@ -47,15 +45,9 @@ class ProductInfoPageViewController: UIViewController {
         productInfoPageView.descriptionLabel.text = product.description
     }
 
-    @objc func backButtonAction(sender: UIButton!) {
-        dismiss(animated: true, completion: nil)
-    }
-
     @objc func reviewsButtonAction(sender: UIButton!) {
         let reviewsViewController = ReviewsViewController(requestFactory: requestFactory,
                                                           productId: product.id)
-        reviewsViewController.modalPresentationStyle = .fullScreen
-        reviewsViewController.modalTransitionStyle = .crossDissolve
-        present(reviewsViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(reviewsViewController, animated: true)
     }
 }

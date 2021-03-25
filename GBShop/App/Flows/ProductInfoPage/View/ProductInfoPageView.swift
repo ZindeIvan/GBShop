@@ -9,18 +9,6 @@ import UIKit
 
 class ProductInfoPageView: UIView {
 
-    private(set) var backButton : UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Back", for: .normal)
-        button.backgroundColor = .green
-        button.setTitleColor(.black, for: .normal)
-        button.setTitleColor(.green, for: .highlighted)
-        button.layer.cornerRadius = 16.0
-        button.layer.masksToBounds = true
-        return button
-    }()
-
     private(set) var reviewsButton : UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -75,7 +63,6 @@ class ProductInfoPageView: UIView {
         addSubview(productNameLabel)
         addSubview(priceLabel)
         addSubview(descriptionLabel)
-        addSubview(backButton)
         addSubview(reviewsButton)
         setUpConstraints()
     }
@@ -84,11 +71,11 @@ class ProductInfoPageView: UIView {
         let safeArea = safeAreaLayoutGuide
         let labelsWidth : CGFloat = 150.0
         let heightSpacing : CGFloat = 20.0
-        let topScreenSpacing : CGFloat = 40.0
+        let topScreenSpacing : CGFloat = 10.0
         let buttonsWidth : CGFloat = 120.0
         let leadingScreenSpacing : CGFloat = 10.0
         NSLayoutConstraint.activate([
-            productNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: topScreenSpacing),
+            productNameLabel.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: topScreenSpacing),
             productNameLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: leadingScreenSpacing),
             productNameLabel.widthAnchor.constraint(equalToConstant: labelsWidth),
             priceLabel.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: heightSpacing),
@@ -100,10 +87,7 @@ class ProductInfoPageView: UIView {
                                                        constant: -leadingScreenSpacing),
             reviewsButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: heightSpacing),
             reviewsButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: leadingScreenSpacing),
-            reviewsButton.widthAnchor.constraint(equalToConstant: buttonsWidth),
-            backButton.topAnchor.constraint(equalTo: reviewsButton.bottomAnchor, constant: heightSpacing),
-            backButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: leadingScreenSpacing),
-            backButton.widthAnchor.constraint(equalToConstant: buttonsWidth)
+            reviewsButton.widthAnchor.constraint(equalToConstant: buttonsWidth)
         ])
     }
 }

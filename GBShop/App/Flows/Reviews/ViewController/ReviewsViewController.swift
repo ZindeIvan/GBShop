@@ -13,6 +13,10 @@ final class ReviewsViewController: UIViewController {
         ReviewsView()
     }()
 
+    private lazy var reviewsFooterView : ReviewsFooterView = {
+       ReviewsFooterView()
+    }()
+
     private var requestFactory : RequestFactory
 
     private var productId : Int
@@ -48,6 +52,8 @@ final class ReviewsViewController: UIViewController {
                                                forCellReuseIdentifier: Constants.reuseIdentifier)
         reviewsView.tableView.delegate = self
         reviewsView.tableView.dataSource = self
+        reviewsView.tableView.tableFooterView = reviewsFooterView
+        reviewsFooterView.delegate = self
         loadReviews()
     }
 
@@ -84,11 +90,47 @@ extension ReviewsViewController: UITableViewDataSource {
             return dequeuedCell
         }
         let review = reviews[indexPath.row]
-        cell.configure(with: review.text)
+        cell.delegate = self
+        cell.configure(with: review.text, index: indexPath.row)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
 
 extension ReviewsViewController: UITableViewDelegate {
 
+}
+
+extension ReviewsViewController: ReviewsFooterViewDelegate {
+
+    func sendButtonTapped(reviewText: String) {
+        let addReview = requestFactory.makeAddReviewRequestFactory()
+        addReview.addReview(id: 123, text: reviewText) { response in
+            switch response.result {
+            case .success(let addReview):
+                print(addReview.userMessage)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+}
+
+extension ReviewsViewController: ReviewsCellDelegate {
+
+    func approveButtonTapped(index: Int) {
+        let approveReview = requestFactory.makeApproveReviewRequestFactory()
+        approveReview.approveReview(id: reviews[index].id) { response in
+            switch response.result {
+            case .success(let approveReview):
+                print(approveReview.result)
+                print("Review approved")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }

@@ -94,9 +94,7 @@ extension ProductsCatalogViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let productInfoPageViewController = ProductInfoPageViewController(requestFactory: requestFactory,
                                                                           product: products[indexPath.row])
-        productInfoPageViewController.modalPresentationStyle = .fullScreen
-        productInfoPageViewController.modalTransitionStyle = .crossDissolve
-        present(productInfoPageViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(productInfoPageViewController, animated: true)
     }
 }
 

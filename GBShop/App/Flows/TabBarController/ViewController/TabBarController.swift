@@ -25,9 +25,9 @@ class TabBarController: UITabBarController {
             viewControllers = [initialTabBar, finalTabBar]
         }
 
-        lazy public var initialTabBar: ProductsCatalogViewController = {
+        lazy public var initialTabBar: ProductsNavigationController = {
 
-            let initialTabBar = ProductsCatalogViewController(requestFactory: requestFactory)
+            let initialTabBar = ProductsNavigationController(requestFactory: requestFactory)
             let title = "Products"
             let tabBarItem = UITabBarItem(title: title,
                                           image:UIImage(systemName: "tablecells"),
