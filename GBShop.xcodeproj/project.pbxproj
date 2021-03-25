@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B517A52B25FA381000B4BFC4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B517A52A25FA381000B4BFC4 /* LoginView.swift */; };
+		B517A53325FA382200B4BFC4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B517A53225FA382200B4BFC4 /* LoginViewController.swift */; };
+		B517A53825FA383600B4BFC4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B517A53725FA383600B4BFC4 /* SignUpView.swift */; };
+		B517A53D25FA384800B4BFC4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B517A53C25FA384800B4BFC4 /* SignUpViewController.swift */; };
+		B517A54225FA389300B4BFC4 /* UserInfoPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B517A54125FA389300B4BFC4 /* UserInfoPageView.swift */; };
+		B517A54725FA38A400B4BFC4 /* UserInfoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B517A54625FA38A400B4BFC4 /* UserInfoPageViewController.swift */; };
+		B517A54D25FA5CC100B4BFC4 /* AppStartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B517A54C25FA5CC100B4BFC4 /* AppStartManager.swift */; };
 		B518C33725DC327200433FA6 /* AbstractErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B518C33625DC327200433FA6 /* AbstractErrorParser.swift */; };
 		B518C33C25DC3A4C00433FA6 /* ErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B518C33B25DC3A4C00433FA6 /* ErrorParser.swift */; };
 		B518C34225DC3C7100433FA6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B518C34125DC3C7100433FA6 /* Alamofire */; };
@@ -81,6 +88,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B517A52A25FA381000B4BFC4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B517A53225FA382200B4BFC4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B517A53725FA383600B4BFC4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		B517A53C25FA384800B4BFC4 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B517A54125FA389300B4BFC4 /* UserInfoPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoPageView.swift; sourceTree = "<group>"; };
+		B517A54625FA38A400B4BFC4 /* UserInfoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoPageViewController.swift; sourceTree = "<group>"; };
+		B517A54C25FA5CC100B4BFC4 /* AppStartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStartManager.swift; sourceTree = "<group>"; };
 		B518C33625DC327200433FA6 /* AbstractErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractErrorParser.swift; sourceTree = "<group>"; };
 		B518C33B25DC3A4C00433FA6 /* ErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorParser.swift; sourceTree = "<group>"; };
 		B518C34625DD6BE400433FA6 /* ResponseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCodable.swift; sourceTree = "<group>"; };
@@ -168,6 +182,89 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B517A52125FA374800B4BFC4 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B517A52425FA37B400B4BFC4 /* View */,
+				B517A52525FA37BA00B4BFC4 /* Controller */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B517A52225FA376900B4BFC4 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				B517A52625FA37C900B4BFC4 /* View */,
+				B517A52725FA37D100B4BFC4 /* Controller */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		B517A52325FA379A00B4BFC4 /* UserInfoPage */ = {
+			isa = PBXGroup;
+			children = (
+				B517A52925FA37F500B4BFC4 /* View */,
+				B517A52825FA37EC00B4BFC4 /* Controller */,
+			);
+			path = UserInfoPage;
+			sourceTree = "<group>";
+		};
+		B517A52425FA37B400B4BFC4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B517A52A25FA381000B4BFC4 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B517A52525FA37BA00B4BFC4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B517A53225FA382200B4BFC4 /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B517A52625FA37C900B4BFC4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B517A53725FA383600B4BFC4 /* SignUpView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B517A52725FA37D100B4BFC4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B517A53C25FA384800B4BFC4 /* SignUpViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B517A52825FA37EC00B4BFC4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B517A54625FA38A400B4BFC4 /* UserInfoPageViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B517A52925FA37F500B4BFC4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B517A54125FA389300B4BFC4 /* UserInfoPageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B517A54B25FA5CB300B4BFC4 /* AppStartManager */ = {
+			isa = PBXGroup;
+			children = (
+				B517A54C25FA5CC100B4BFC4 /* AppStartManager.swift */,
+			);
+			path = AppStartManager;
+			sourceTree = "<group>";
+		};
 		B518C33425DC321600433FA6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +467,9 @@
 		B564AFD725D8435800114E37 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				B517A52125FA374800B4BFC4 /* Login */,
+				B517A52225FA376900B4BFC4 /* SignUp */,
+				B517A52325FA379A00B4BFC4 /* UserInfoPage */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -377,6 +477,7 @@
 		B564AFD825D8436E00114E37 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B517A54B25FA5CB300B4BFC4 /* AppStartManager */,
 				B518C33525DC324C00433FA6 /* Network */,
 			);
 			path = Core;
@@ -621,6 +722,7 @@
 				B518C3AE25DD8D0400433FA6 /* ChangeUserData.swift in Sources */,
 				B518C36025DD6DFF00433FA6 /* AuthRequestFactory.swift in Sources */,
 				B550CDBB25F67D8600D5E0CC /* GetReviews.swift in Sources */,
+				B517A52B25FA381000B4BFC4 /* LoginView.swift in Sources */,
 				B518C35125DD6CD100433FA6 /* RequestRouter.swift in Sources */,
 				B550CDE525F682DD00D5E0CC /* DeleteFromBasketRequestFactory.swift in Sources */,
 				B518C37C25DD7C9400433FA6 /* SignUpRequestFactory.swift in Sources */,
@@ -629,11 +731,14 @@
 				B52278F225F0B31E0033E06D /* ApproveReviewRequestFactory.swift in Sources */,
 				B518C35625DD6D8B00433FA6 /* LoginResult.swift in Sources */,
 				B52278DA25F0AD820033E06D /* RemoveReview.swift in Sources */,
+				B517A54725FA38A400B4BFC4 /* UserInfoPageViewController.swift in Sources */,
 				B518C3A625DD8CF000433FA6 /* ChangeUserDataRequestFactory.swift in Sources */,
 				B52FD26925E3E48100DC184F /* GetProductById.swift in Sources */,
 				B518C38F25DD88F800433FA6 /* Logout.swift in Sources */,
+				B517A54D25FA5CC100B4BFC4 /* AppStartManager.swift in Sources */,
 				B52278CF25F0A5150033E06D /* AddReviewRequestFactory.swift in Sources */,
 				B518C36525DD6E4D00433FA6 /* Auth.swift in Sources */,
+				B517A54225FA389300B4BFC4 /* UserInfoPageView.swift in Sources */,
 				B550CDC125F67DC300D5E0CC /* GetReviewsRequestFactory.swift in Sources */,
 				B550CDCA25F6806700D5E0CC /* AddToBasket.swift in Sources */,
 				B518C35B25DD6DAC00433FA6 /* User.swift in Sources */,
@@ -643,6 +748,7 @@
 				B52278E225F0AD970033E06D /* RemoveReviewRequestFactory.swift in Sources */,
 				B550CDF825F6857300D5E0CC /* PayBasketRequestFactory.swift in Sources */,
 				B518C34C25DD6C9800433FA6 /* AbstractRequestFactory.swift in Sources */,
+				B517A53325FA382200B4BFC4 /* LoginViewController.swift in Sources */,
 				B52278ED25F0B2F40033E06D /* ApproveReview.swift in Sources */,
 				B52278D425F0A9EB0033E06D /* AddReviewResult.swift in Sources */,
 				B52278F725F0B33E0033E06D /* ApproveReviewResult.swift in Sources */,
@@ -650,9 +756,11 @@
 				B52FD26125E3E46800DC184F /* GetProductByIdRequestFactory.swift in Sources */,
 				B52FD25B25E3E0EA00DC184F /* ProductsCatalogResult.swift in Sources */,
 				B550CDD725F680DB00D5E0CC /* AddToBasketResult.swift in Sources */,
+				B517A53825FA383600B4BFC4 /* SignUpView.swift in Sources */,
 				B550CDD225F6807900D5E0CC /* AddToBasketRequestFactory.swift in Sources */,
 				B518C39425DD895900433FA6 /* LogoutResult.swift in Sources */,
 				B52FD25625E3DFFA00DC184F /* GetProductsCatalogRequestFactory.swift in Sources */,
+				B517A53D25FA384800B4BFC4 /* SignUpViewController.swift in Sources */,
 				B518C33C25DC3A4C00433FA6 /* ErrorParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

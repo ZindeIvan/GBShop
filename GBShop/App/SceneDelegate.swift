@@ -10,11 +10,16 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var appStartManager: AppStartManager?
+    let requestFactory = RequestFactory(baseURL: "https://infinite-depths-93698.herokuapp.com/")
 
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let winScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: winScene)
+        appStartManager = AppStartManager(window: window, requestFactory: requestFactory)
+        appStartManager?.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
