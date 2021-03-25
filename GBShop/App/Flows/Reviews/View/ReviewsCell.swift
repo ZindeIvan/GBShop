@@ -76,6 +76,7 @@ final class ReviewsCell: UITableViewCell {
 
     @objc func approveButtonAction(sender: UIButton!) {
         guard let index = cellIndex else { return }
+        approveButton.isSelected = !approveButton.isSelected
         delegate?.approveButtonTapped(index: index)
     }
 

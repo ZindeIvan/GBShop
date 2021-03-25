@@ -21,33 +21,45 @@ class TabBarController: UITabBarController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(true)
-            viewControllers = [initialTabBar, finalTabBar]
-        }
+        super.viewWillAppear(true)
+        viewControllers = [initialTabBar, secondTabBar, finalTabBar]
+    }
 
-        lazy public var initialTabBar: ProductsNavigationController = {
+    lazy public var initialTabBar: ProductsNavigationController = {
 
-            let initialTabBar = ProductsNavigationController(requestFactory: requestFactory)
-            let title = "Products"
-            let tabBarItem = UITabBarItem(title: title,
-                                          image:UIImage(systemName: "tablecells"),
-                                          selectedImage:UIImage(systemName: "tablecells.fill"))
-            initialTabBar.tabBarItem = tabBarItem
+        let tabBar = ProductsNavigationController(requestFactory: requestFactory)
+        let title = "Products"
+        let tabBarItem = UITabBarItem(title: title,
+                                      image:UIImage(systemName: "tablecells"),
+                                      selectedImage:UIImage(systemName: "tablecells.fill"))
+        tabBar.tabBarItem = tabBarItem
 
-            return initialTabBar
-        }()
+        return tabBar
+    }()
 
-        lazy public var finalTabBar: UserInfoPageViewController = {
+    lazy public var secondTabBar: UserInfoPageViewController = {
 
-            let finalTabBar = UserInfoPageViewController(requestFactory: requestFactory)
-            let title = "User"
-            let tabBarItem = UITabBarItem(title: title,
-                                          image:UIImage(systemName: "person.crop.square"),
-                                          selectedImage:UIImage(systemName: "person.crop.square.fill"))
-            finalTabBar.tabBarItem = tabBarItem
+        let tabBar = UserInfoPageViewController(requestFactory: requestFactory)
+        let title = "User"
+        let tabBarItem = UITabBarItem(title: title,
+                                      image:UIImage(systemName: "person.crop.square"),
+                                      selectedImage:UIImage(systemName: "person.crop.square.fill"))
+        tabBar.tabBarItem = tabBarItem
 
-            return finalTabBar
-        }()
+        return tabBar
+    }()
+
+    lazy public var finalTabBar: BasketViewController = {
+
+        let tabBar = BasketViewController(requestFactory: requestFactory)
+        let title = "Cart"
+        let tabBarItem = UITabBarItem(title: title,
+                                      image:UIImage(systemName: "cart"),
+                                      selectedImage:UIImage(systemName: "cart.fill"))
+        tabBar.tabBarItem = tabBarItem
+
+        return tabBar
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -21,6 +21,18 @@ class ProductInfoPageView: UIView {
         return button
     }()
 
+    private(set) var addToCartButton : UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Add to Cart", for: .normal)
+        button.backgroundColor = .green
+        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.green, for: .highlighted)
+        button.layer.cornerRadius = 16.0
+        button.layer.masksToBounds = true
+        return button
+    }()
+
     private(set) var productNameLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -63,6 +75,7 @@ class ProductInfoPageView: UIView {
         addSubview(productNameLabel)
         addSubview(priceLabel)
         addSubview(descriptionLabel)
+        addSubview(addToCartButton)
         addSubview(reviewsButton)
         setUpConstraints()
     }
@@ -85,8 +98,12 @@ class ProductInfoPageView: UIView {
             descriptionLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: leadingScreenSpacing),
             descriptionLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor,
                                                        constant: -leadingScreenSpacing),
+            addToCartButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: heightSpacing),
+            addToCartButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: leadingScreenSpacing),
+            addToCartButton.widthAnchor.constraint(equalToConstant: buttonsWidth),
             reviewsButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: heightSpacing),
-            reviewsButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: leadingScreenSpacing),
+            reviewsButton.leadingAnchor.constraint(equalTo: addToCartButton.trailingAnchor,
+                                                   constant: leadingScreenSpacing),
             reviewsButton.widthAnchor.constraint(equalToConstant: buttonsWidth)
         ])
     }

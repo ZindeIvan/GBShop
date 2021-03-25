@@ -40,6 +40,9 @@ class ProductInfoPageViewController: UIViewController {
         productInfoPageView.reviewsButton.addTarget(self,
                                                     action: #selector(reviewsButtonAction),
                                                     for: .touchUpInside)
+        productInfoPageView.addToCartButton.addTarget(self,
+                                                    action: #selector(addToCartButtonAction),
+                                                    for: .touchUpInside)
         productInfoPageView.productNameLabel.text = product.product
         productInfoPageView.priceLabel.text = String(format: "%.2f", product.price) + " руб."
         productInfoPageView.descriptionLabel.text = product.description
@@ -49,5 +52,18 @@ class ProductInfoPageViewController: UIViewController {
         let reviewsViewController = ReviewsViewController(requestFactory: requestFactory,
                                                           productId: product.id)
         navigationController?.pushViewController(reviewsViewController, animated: true)
+    }
+
+    @objc func addToCartButtonAction(sender: UIButton!) {
+        let addToBasket = requestFactory.makeAddToBasketRequestFactory()
+        addToBasket.addToBasket(id: product.id, quantity: 1) { response in
+            switch response.result {
+            case .success(let addToBasket):
+                print(addToBasket.result)
+                print("Added to cart")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
