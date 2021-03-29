@@ -43,6 +43,7 @@ final class BasketViewController: UIViewController {
         super.viewDidLoad()
         basketView.tableView.register(BasketCell.self,
                                                forCellReuseIdentifier: Constants.reuseIdentifier)
+        basketView.buyButton.addTarget(self,action: #selector(buyButtonAction), for: .touchUpInside)
         basketView.tableView.delegate = self
         basketView.tableView.dataSource = self
         loadBasket()
@@ -73,6 +74,19 @@ final class BasketViewController: UIViewController {
                        count: Int.random(in: 0...10),
                        id: productResult.id)
     }
+
+    @objc func buyButtonAction(sender: UIButton!) {
+        let payBasket = requestFactory.makePayBasketRequestFactory()
+        payBasket.payBasket(id: 123) { response in
+            switch response.result {
+            case .success(let payBasket):
+                print(payBasket.result)
+                print(payBasket.userMessage)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 extension BasketViewController: UITableViewDataSource {
@@ -99,10 +113,24 @@ extension BasketViewController: UITableViewDelegate {
 
 extension BasketViewController: BasketCellDelegate {
     func countValueChanged(index: Int, count: Int) {
-        print("\(index) count: \(count)")
+        guard index < basketItems.count else { return }
+        basketItems[index].count = count
     }
 
     func deleteButtonTapped(index: Int) {
-        print("\(index)")
+        guard index < basketItems.count else { return }
+        let deleteFromBasket = requestFactory.makeDeleteFromBasketRequestFactory()
+        deleteFromBasket.deleteFromBasket(id: basketItems[index].id) { response in
+            switch response.result {
+            case .success(let deleteFromBasket):
+                DispatchQueue.main.async {
+                    self.basketItems.remove(at: index)
+                    print("Item deleted from basket")
+                    print(deleteFromBasket.result)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

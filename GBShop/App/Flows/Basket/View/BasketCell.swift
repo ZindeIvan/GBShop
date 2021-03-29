@@ -42,7 +42,6 @@ final class BasketCell: UITableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "trash.circle"), for: .normal)
         button.setImage(UIImage(systemName: "trash.circle.fill"), for: .selected)
-        button.layer.cornerRadius = 30.0
         button.layer.masksToBounds = true
         return button
     }()
@@ -72,6 +71,7 @@ final class BasketCell: UITableViewCell {
         countStepper.value = Double(item.count)
         productLabel.text = item.product
         priceLabel.text = String(format: "%.2f", item.price) + " руб."
+        countLabel.text = "\(String(format: "%.0f", countStepper.value)) шт."
     }
 
     override func prepareForReuse() {
@@ -95,8 +95,8 @@ final class BasketCell: UITableViewCell {
         let leftSpacing : CGFloat = 12.0
         let rightSpacing : CGFloat = -20.0
         let buttonRadius : CGFloat = 30.0
-        let cellHeigh : CGFloat = 120.0
-        let priceWidth : CGFloat = 60.0
+        let cellHeigh : CGFloat = 100.0
+        let priceWidth : CGFloat = 100.0
         NSLayoutConstraint.activate([
             contentView.heightAnchor.constraint(equalToConstant: cellHeigh),
             productLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topSpacing),
@@ -113,15 +113,14 @@ final class BasketCell: UITableViewCell {
             countLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: leftSpacing),
             countLabel.widthAnchor.constraint(equalToConstant: priceWidth),
             countStepper.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: topSpacing),
-            countLabel.leadingAnchor.constraint(equalTo: countLabel.trailingAnchor, constant: leftSpacing),
-            countLabel.widthAnchor.constraint(equalToConstant: buttonRadius)
+            countStepper.leadingAnchor.constraint(equalTo: countLabel.trailingAnchor, constant: leftSpacing)
         ])
     }
 
     @objc func stepperValueChanged(sender:UIStepper!) {
         guard let index = cellIndex else { return }
         let value = Int(sender.value)
-        countLabel.text = "\(value) шт."
+        countLabel.text = "\(String(format: "%.0f", sender.value)) шт."
         delegate?.countValueChanged(index: index, count: value)
     }
 

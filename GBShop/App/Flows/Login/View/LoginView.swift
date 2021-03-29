@@ -18,6 +18,7 @@ class LoginView : UIView {
         button.setTitleColor(.green, for: .highlighted)
         button.layer.cornerRadius = 16.0
         button.layer.masksToBounds = true
+        button.accessibilityIdentifier = "Login"
         return button
     }()
 
@@ -42,6 +43,7 @@ class LoginView : UIView {
         textField.borderStyle = .roundedRect
         textField.layer.cornerRadius = 5.0
         textField.layer.masksToBounds = true
+        textField.accessibilityIdentifier = "Login"
         return textField
     }()
 
@@ -54,6 +56,7 @@ class LoginView : UIView {
         textField.borderStyle = .roundedRect
         textField.layer.cornerRadius = 5.0
         textField.layer.masksToBounds = true
+        textField.accessibilityIdentifier = "Password"
         return textField
     }()
 

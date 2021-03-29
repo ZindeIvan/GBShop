@@ -10,6 +10,6 @@ import Foundation
 struct BasketItem {
     let product : String
     let price : Double
-    let count : Int
+    var count : Int
     let id : Int
 }

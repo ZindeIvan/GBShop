@@ -13,10 +13,6 @@ final class ReviewsViewController: UIViewController {
         ReviewsView()
     }()
 
-    private lazy var reviewsFooterView : ReviewsFooterView = {
-       ReviewsFooterView()
-    }()
-
     private var requestFactory : RequestFactory
 
     private var productId : Int
@@ -52,8 +48,7 @@ final class ReviewsViewController: UIViewController {
                                                forCellReuseIdentifier: Constants.reuseIdentifier)
         reviewsView.tableView.delegate = self
         reviewsView.tableView.dataSource = self
-        reviewsView.tableView.tableFooterView = reviewsFooterView
-        reviewsFooterView.delegate = self
+        reviewsView.sendButton.addTarget(self,action: #selector(sendButtonAction), for: .touchUpInside)
         loadReviews()
     }
 
@@ -75,6 +70,19 @@ final class ReviewsViewController: UIViewController {
 
     private func getReviewFromReviewResult(reviewResult: GetReviewsResult) -> Review {
         return Review(text: reviewResult.text, id: reviewResult.id)
+    }
+
+    @objc func sendButtonAction(sender: UIButton!) {
+        let addReview = requestFactory.makeAddReviewRequestFactory()
+        addReview.addReview(id: productId, text: reviewsView.reviewTextField.text ?? "") { response in
+            switch response.result {
+            case .success(let addReview):
+                print(addReview.result, 1)
+                print(addReview.userMessage)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
@@ -102,21 +110,6 @@ extension ReviewsViewController: UITableViewDataSource {
 
 extension ReviewsViewController: UITableViewDelegate {
 
-}
-
-extension ReviewsViewController: ReviewsFooterViewDelegate {
-
-    func sendButtonTapped(reviewText: String) {
-        let addReview = requestFactory.makeAddReviewRequestFactory()
-        addReview.addReview(id: 123, text: reviewText) { response in
-            switch response.result {
-            case .success(let addReview):
-                print(addReview.userMessage)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
 }
 
 extension ReviewsViewController: ReviewsCellDelegate {
