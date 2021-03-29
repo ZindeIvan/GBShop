@@ -79,8 +79,15 @@ final class ReviewsViewController: UIViewController {
             case .success(let addReview):
                 print(addReview.result, 1)
                 print(addReview.userMessage)
+                FBAnalytics.shared.trackAddReview(userId: 123,
+                                                  productId: self.productId,
+                                                  failed: false,
+                                                  error: nil)
             case .failure(let error):
-                print(error.localizedDescription)
+                FBAnalytics.shared.trackAddReview(userId: 123,
+                                                  productId: self.productId,
+                                                  failed: true,
+                                                  error: error.localizedDescription)
             }
         }
     }

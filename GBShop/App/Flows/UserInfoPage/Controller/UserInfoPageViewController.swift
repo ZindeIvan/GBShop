@@ -58,9 +58,10 @@ class UserInfoPageViewController: UIViewController {
                 print(changeData.result)
                 DispatchQueue.main.async {
                     self.dismiss(animated: true)
+                    FBAnalytics.shared.trackLogout(failed: false, error: nil)
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                FBAnalytics.shared.trackLogout(failed: true, error: error.localizedDescription)
             }
         }
     }

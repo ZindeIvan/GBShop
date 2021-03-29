@@ -82,8 +82,13 @@ final class BasketViewController: UIViewController {
             case .success(let payBasket):
                 print(payBasket.result)
                 print(payBasket.userMessage)
+                FBAnalytics.shared.trackPay(userId: 123,
+                                            failed: false,
+                                            error: nil)
             case .failure(let error):
-                print(error.localizedDescription)
+                FBAnalytics.shared.trackPay(userId: 123,
+                                            failed: true,
+                                            error: error.localizedDescription)
             }
         }
     }
@@ -125,11 +130,15 @@ extension BasketViewController: BasketCellDelegate {
             case .success(let deleteFromBasket):
                 DispatchQueue.main.async {
                     self.basketItems.remove(at: index)
-                    print("Item deleted from basket")
                     print(deleteFromBasket.result)
+                    FBAnalytics.shared.trackRemoveFromeBasket(productId: self.basketItems[index].id,
+                                                              failed: false,
+                                                              error: nil)
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                FBAnalytics.shared.trackRemoveFromeBasket(productId: self.basketItems[index].id,
+                                                          failed: true,
+                                                          error: error.localizedDescription)
             }
         }
     }

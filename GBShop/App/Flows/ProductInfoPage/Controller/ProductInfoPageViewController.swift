@@ -34,6 +34,7 @@ class ProductInfoPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        FBAnalytics.shared.trackOpenProductPage(productId: product.id)
     }
 
     private func configureUI() {
@@ -60,9 +61,13 @@ class ProductInfoPageViewController: UIViewController {
             switch response.result {
             case .success(let addToBasket):
                 print(addToBasket.result)
-                print("Added to cart")
+                FBAnalytics.shared.trackAddToBasket(productId: self.product.id,
+                                                    failed: false,
+                                                    error: nil)
             case .failure(let error):
-                print(error.localizedDescription)
+                FBAnalytics.shared.trackAddToBasket(productId: self.product.id,
+                                                    failed: true,
+                                                    error: error.localizedDescription)
             }
         }
     }

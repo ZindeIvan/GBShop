@@ -67,9 +67,10 @@ class SignUpViewController : UIViewController {
                 print(login.userMessage)
                 DispatchQueue.main.async {
                     self.dismiss(animated: true, completion: nil)
+                    FBAnalytics.shared.trackSignUp(failed: false, error: nil)
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                FBAnalytics.shared.trackSignUp(failed: true, error: error.localizedDescription)
             }
         }
     }

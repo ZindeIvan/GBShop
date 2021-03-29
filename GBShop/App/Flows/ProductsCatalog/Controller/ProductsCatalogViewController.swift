@@ -46,6 +46,7 @@ final class ProductsCatalogViewController: UIViewController {
         productsCatalogView.tableView.delegate = self
         productsCatalogView.tableView.dataSource = self
         loadProductsCatalog()
+        FBAnalytics.shared.trackOpenProductsCatalog()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
